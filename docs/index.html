@@ -132,50 +132,8 @@
       box-shadow: none;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px 22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-      margin: 0;
-    }
-
-    .card h2, .card h3 {
-      margin: 0 0 10px;
-      font-family: "Fraunces", "Georgia", serif;
-    }
-
     .muted {
       color: var(--muted);
-    }
-
-    .contact {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(242, 127, 127, 0.08);
-      border: 1px solid rgba(242, 127, 127, 0.18);
-    }
-
-    .contact strong {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: #8c3b3b;
     }
 
     a {
@@ -193,19 +151,15 @@
       padding-left: 18px;
       margin: 8px 0 0;
     }
-
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+    section {
+      margin: 26px 0;
+      position: relative;
+      z-index: 1;
     }
 
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
-      margin: 22px 0;
-      border: 0;
+    section h2, section h3 {
+      margin: 0 0 10px;
+      font-family: "Fraunces", "Georgia", serif;
     }
 
     footer {
@@ -238,53 +192,48 @@
       </div>
     </header>
 
-    <section class="grid fade-in" style="animation-delay: 0.08s;">
-      <div class="card">
-        <h2>Связаться с поддержкой</h2>
-        <div class="contact">
-          <strong>Email поддержки</strong>
-          <a href="mailto:voyage-app@mail.ru">voyage-app@mail.ru</a>
-          <span class="muted">Обычно отвечаем в течение 24 часов в рабочие дни.</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Для чего Voyage?</h2>
-        <p class="muted">
-          Voyage помогает собираться без суеты: списки под города, умные категории,
-          шаблоны для повторных поездок и архив для истории.
-        </p>
-        <hr class="divider" />
-        <ul>
-          <li>Создавайте чек‑листы для конкретных поездок.</li>
-          <li>Группируйте вещи по категориям и эмодзи.</li>
-          <li>Сохраняйте наборы как шаблоны.</li>
-          <li>Архивируйте старые шаблоны.</li>
-        </ul>
-      </div>
+    <section class="fade-in" style="animation-delay: 0.08s;">
+      <h2>Связаться с поддержкой</h2>
+      <p>
+        Email поддержки:
+        <a href="mailto:voyage-app@mail.ru">voyage-app@mail.ru</a>
+      </p>
+      <p class="muted">Обычно отвечаем в течение 24 часов в рабочие дни.</p>
     </section>
 
-    <section class="columns fade-in" id="faq" style="animation-delay: 0.16s; margin-top: 18px;">
-      <div class="card">
-        <h3>Частые вопросы</h3>
-        <ul>
-          <li>Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.</li>
-          <li>Как сохранить как шаблон? Откройте список и нажмите «Все собрано».</li>
-          <li>Где архив? В профиле → «Архив шаблонов».</li>
-          <li>Нужна регистрация? Нет, приложение работает в локальном режиме.</li>
-        </ul>
-      </div>
+    <section class="fade-in" style="animation-delay: 0.12s;">
+      <h2>Для чего Voyage?</h2>
+      <p class="muted">
+        Voyage помогает собираться без суеты: списки под города, умные категории,
+        шаблоны для повторных поездок и архив для истории.
+      </p>
+      <ul>
+        <li>Создавайте чек‑листы для конкретных поездок.</li>
+        <li>Группируйте вещи по категориям и эмодзи.</li>
+        <li>Сохраняйте наборы как шаблоны.</li>
+        <li>Архивируйте старые шаблоны.</li>
+      </ul>
+    </section>
 
-      <div class="card">
-        <h3>Юридическая информация</h3>
-        <p class="muted">
-          Политика конфиденциальности и пользовательское соглашение доступны в приложении.
-        </p>
-        <p class="muted">
-          <strong>Данные в безопасности?</strong> Все данные хранятся локально на вашем устройстве.
-          Приложение работает без регистрации и не передает данные третьим лицам.
-        </p>
-      </div>
+    <section class="fade-in" id="faq" style="animation-delay: 0.16s;">
+      <h3>Частые вопросы</h3>
+      <ul>
+        <li>Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.</li>
+        <li>Как сохранить как шаблон? Откройте список и нажмите «Все собрано».</li>
+        <li>Где архив? В профиле → «Архив шаблонов».</li>
+        <li>Нужна регистрация? Нет, приложение работает в локальном режиме.</li>
+      </ul>
+    </section>
+
+    <section class="fade-in" style="animation-delay: 0.2s;">
+      <h3>Юридическая информация</h3>
+      <p class="muted">
+        Политика конфиденциальности и пользовательское соглашение доступны в приложении.
+      </p>
+      <p class="muted">
+        <strong>Данные в безопасности?</strong> Все данные хранятся локально на вашем устройстве.
+        Приложение работает без регистрации и не передает данные третьим лицам.
+      </p>
     </section>
 
     <footer class="fade-in" style="animation-delay: 0.24s;">
