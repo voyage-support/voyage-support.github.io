@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Поддержка Voyage — чек-листов для поездок." />
+  <title>Voyage — Поддержка</title>
+  <style>
+    :root {
+      --bg: #faf7f6;
+      --card: #ffffff;
+      --text: #2f2f2f;
+      --muted: #6b6b6b;
+      --accent: #f27f7f;
+      --accent-dark: #d96d6d;
+      --border: #ece8e6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: radial-gradient(1200px 400px at 10% -10%, #ffe8e8, transparent),
+                  radial-gradient(800px 300px at 100% 0%, #fff0f0, transparent),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+
+    header {
+      text-align: center;
+      padding: 24px 16px 8px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      letter-spacing: 0.2px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      margin: 16px 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ffe3e3;
+      color: #8c3b3b;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(242,127,127,0.35);
+    }
+
+    a:hover {
+      color: var(--accent);
+      border-bottom-color: rgba(242,127,127,0.7);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 720px) {
+      .columns { grid-template-columns: 1fr 1fr; }
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="pill">Поддержка</div>
+      <h1>Voyage</h1>
+      <p class="subtitle">Чек‑листы для поездок: города, категории, шаблоны.</p>
+    </header>
+
+    <section class="card">
+      <h2>Как помочь?</h2>
+      <p>
+        Опишите проблему или предложение, и мы вернемся с ответом.
+        Пожалуйста, приложите версию iOS, модель устройства и скриншоты при необходимости.
+      </p>
+      <p>
+        Email поддержки: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
+      </p>
+    </section>
+
+    <section class="columns">
+      <div class="card">
+        <h3>Частые вопросы</h3>
+        <ul>
+          <li>Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.</li>
+          <li>Как сохранить как шаблон? Откройте список и нажмите «Все собрано».</li>
+          <li>Где архив? В профиле → «Архив шаблонов».</li>
+          <li>Нужна регистрация? Нет, приложение работает в локальном режиме.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>О приложении</h3>
+        <ul>
+          <li>Создавайте списки под конкретные города.</li>
+          <li>Группируйте вещи по категориям и эмодзи.</li>
+          <li>Сохраняйте наборы как шаблоны.</li>
+          <li>Архивируйте старые шаблоны.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Юридическая информация</h3>
+      <p>
+        Политика конфиденциальности и пользовательское соглашение доступны по запросу.
+        Если нужно, добавьте ссылки на публичные документы.
+      </p>
+    </section>
+
+    <footer>
+      © 2026 Voyage
+    </footer>
+  </div>
+</body>
+</html>
