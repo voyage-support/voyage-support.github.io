@@ -1,162 +1,335 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Поддержка Voyage — чек-листов для поездок." />
-  <title>Voyage — Поддержка</title>
-  <style>
-    :root {
-      --bg: #faf7f6;
-      --card: #ffffff;
-      --text: #2f2f2f;
-      --muted: #6b6b6b;
-      --accent: #f27f7f;
-      --accent-dark: #d96d6d;
-      --border: #ece8e6;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-      background: radial-gradient(1200px 400px at 10% -10%, #ffe8e8, transparent),
-                  radial-gradient(800px 300px at 100% 0%, #fff0f0, transparent),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .wrap {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 40px 20px 64px;
-    }
-
-    header {
-      text-align: center;
-      padding: 24px 16px 8px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 34px;
-      letter-spacing: 0.2px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 16px;
-      margin: 0 0 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-      margin: 16px 0;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #ffe3e3;
-      color: #8c3b3b;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    a {
-      color: var(--accent-dark);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(242,127,127,0.35);
-    }
-
-    a:hover {
-      color: var(--accent);
-      border-bottom-color: rgba(242,127,127,0.7);
-    }
-
-    ul {
-      padding-left: 20px;
-      margin: 8px 0 0;
-    }
-
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    @media (min-width: 720px) {
-      .columns { grid-template-columns: 1fr 1fr; }
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 28px;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="pill">Поддержка</div>
-      <h1>Voyage</h1>
-      <p class="subtitle">Чек‑листы для поездок: города, категории, шаблоны.</p>
-    </header>
-
-    <section class="card">
-      <h2>Как помочь?</h2>
-      <p>
-        Опишите проблему или предложение, и мы вернемся с ответом.
-        Пожалуйста, приложите версию iOS, модель устройства и скриншоты при необходимости.
-      </p>
-      <p>
-        Email поддержки: <a href="mailto:voyage-app@mail.ru">voyage-app@mail.ru</a>
-      </p>
-    </section>
-
-    <section class="columns">
-      <div class="card">
-        <h3>Частые вопросы</h3>
-        <ul>
-          <li>Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.</li>
-          <li>Как сохранить как шаблон? Откройте список и нажмите «Все собрано».</li>
-          <li>Где архив? В профиле → «Архив шаблонов».</li>
-          <li>Нужна регистрация? Нет, приложение работает в локальном режиме.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>О приложении</h3>
-        <ul>
-          <li>Создавайте списки под конкретные города.</li>
-          <li>Группируйте вещи по категориям и эмодзи.</li>
-          <li>Сохраняйте наборы как шаблоны.</li>
-          <li>Архивируйте старые шаблоны.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card">
-      <h3>Юридическая информация</h3>
-      <p>
-        Политика конфиденциальности и пользовательское соглашение доступны в приложении
-      </p>
-    </section>
-
-    <footer>
-      © 2026 Voyage
-    </footer>
-  </div>
-</body>
-</html>
+diff --git a//Users/ildar.khasanov/Documents/voyage_ru/docs/index.html b//Users/ildar.khasanov/Documents/voyage_ru/docs/index.html
+--- a//Users/ildar.khasanov/Documents/voyage_ru/docs/index.html
++++ b//Users/ildar.khasanov/Documents/voyage_ru/docs/index.html
+@@ -8,10 +8,14 @@
+   <style>
++    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
++
+     :root {
+-      --bg: #faf7f6;
+-      --card: #ffffff;
+-      --text: #2f2f2f;
+-      --muted: #6b6b6b;
++      --bg: #f7f4f2;
++      --card: rgba(255, 255, 255, 0.84);
++      --text: #1f1f1f;
++      --muted: #6a6763;
+       --accent: #f27f7f;
+-      --accent-dark: #d96d6d;
+-      --border: #ece8e6;
++      --accent-2: #f4b6a8;
++      --accent-dark: #c95f5f;
++      --border: rgba(232, 228, 224, 0.9);
++      --shadow: 0 20px 60px rgba(27, 18, 16, 0.12);
+     }
+@@ -22,8 +26,11 @@
+       margin: 0;
+-      font-family: "Georgia", "Times New Roman", serif;
+-      background: radial-gradient(1200px 400px at 10% -10%, #ffe8e8, transparent),
+-                  radial-gradient(800px 300px at 100% 0%, #fff0f0, transparent),
+-                  var(--bg);
++      font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
++      background:
++        radial-gradient(1200px 500px at 12% -8%, rgba(242, 127, 127, 0.35), transparent),
++        radial-gradient(800px 400px at 92% 4%, rgba(244, 182, 168, 0.35), transparent),
++        radial-gradient(900px 500px at 50% 120%, rgba(246, 231, 220, 0.6), transparent),
++        var(--bg);
+       color: var(--text);
+-      line-height: 1.6;
++      line-height: 1.7;
++      min-height: 100vh;
+     }
+@@ -31,5 +38,18 @@
+     .wrap {
+-      max-width: 840px;
++      max-width: 980px;
+       margin: 0 auto;
+-      padding: 40px 20px 64px;
++      padding: 32px 20px 72px;
++      position: relative;
++    }
++
++    .glow {
++      position: absolute;
++      width: 240px;
++      height: 240px;
++      background: radial-gradient(circle, rgba(242,127,127,0.35), transparent 70%);
++      filter: blur(20px);
++      top: 40px;
++      right: -60px;
++      z-index: 0;
++      pointer-events: none;
+     }
+@@ -38,3 +58,20 @@
+       text-align: center;
+-      padding: 24px 16px 8px;
++      padding: 36px 12px 8px;
++      position: relative;
++      z-index: 1;
++    }
++
++    .badge {
++      display: inline-flex;
++      align-items: center;
++      gap: 8px;
++      padding: 6px 14px;
++      border-radius: 999px;
++      background: rgba(242, 127, 127, 0.16);
++      color: #8c3b3b;
++      font-size: 12px;
++      font-weight: 700;
++      text-transform: uppercase;
++      letter-spacing: 0.8px;
++      border: 1px solid rgba(242, 127, 127, 0.2);
+     }
+@@ -42,4 +79,6 @@
+     h1 {
+-      margin: 0 0 8px;
+-      font-size: 34px;
++      margin: 14px 0 8px;
++      font-family: "Fraunces", "Georgia", serif;
++      font-weight: 700;
++      font-size: 44px;
+       letter-spacing: 0.2px;
+@@ -49,6 +88,60 @@
+       color: var(--muted);
++      font-size: 17px;
++      margin: 0;
++    }
++
++    .hero {
++      margin: 18px auto 10px;
++      max-width: 720px;
++      color: var(--muted);
+       font-size: 16px;
+-      margin: 0 0 18px;
+     }
+ 
++    .cta {
++      margin-top: 22px;
++      display: flex;
++      flex-wrap: wrap;
++      gap: 12px;
++      justify-content: center;
++    }
++
++    .btn {
++      display: inline-flex;
++      align-items: center;
++      gap: 10px;
++      padding: 12px 18px;
++      border-radius: 14px;
++      background: linear-gradient(135deg, var(--accent), var(--accent-2));
++      color: white;
++      font-weight: 600;
++      text-decoration: none;
++      border: none;
++      box-shadow: 0 12px 30px rgba(242, 127, 127, 0.35);
++      transition: transform 0.2s ease, box-shadow 0.2s ease;
++    }
++
++    .btn:hover {
++      transform: translateY(-1px);
++      box-shadow: 0 16px 40px rgba(242, 127, 127, 0.45);
++    }
++
++    .btn.secondary {
++      background: rgba(255, 255, 255, 0.8);
++      color: var(--text);
++      border: 1px solid var(--border);
++      box-shadow: none;
++    }
++
++    .grid {
++      display: grid;
++      grid-template-columns: 1fr;
++      gap: 18px;
++      position: relative;
++      z-index: 1;
++    }
++
++    @media (min-width: 820px) {
++      .grid { grid-template-columns: 1.15fr 0.85fr; }
++    }
++
+     .card {
+@@ -56,18 +149,34 @@
+       border: 1px solid var(--border);
+-      border-radius: 16px;
+-      padding: 20px 20px;
+-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+-      margin: 16px 0;
++      border-radius: 18px;
++      padding: 22px 22px;
++      box-shadow: var(--shadow);
++      backdrop-filter: blur(8px);
++      margin: 0;
++    }
++
++    .card h2, .card h3 {
++      margin: 0 0 10px;
++      font-family: "Fraunces", "Georgia", serif;
++    }
++
++    .muted {
++      color: var(--muted);
++    }
++
++    .contact {
++      display: flex;
++      flex-direction: column;
++      gap: 10px;
++      margin-top: 14px;
++      padding: 14px;
++      border-radius: 14px;
++      background: rgba(242, 127, 127, 0.08);
++      border: 1px solid rgba(242, 127, 127, 0.18);
+     }
+ 
+-    .pill {
+-      display: inline-block;
+-      padding: 4px 10px;
+-      border-radius: 999px;
+-      background: #ffe3e3;
+-      color: #8c3b3b;
+-      font-size: 12px;
+-      font-weight: 600;
++    .contact strong {
++      font-size: 14px;
+       text-transform: uppercase;
+       letter-spacing: 0.6px;
++      color: #8c3b3b;
+     }
+@@ -77,3 +186,3 @@
+       text-decoration: none;
+-      border-bottom: 1px solid rgba(242,127,127,0.35);
++      border-bottom: 1px solid rgba(201, 95, 95, 0.35);
+     }
+@@ -82,3 +191,3 @@
+       color: var(--accent);
+-      border-bottom-color: rgba(242,127,127,0.7);
++      border-bottom-color: rgba(201, 95, 95, 0.7);
+     }
+@@ -86,3 +195,3 @@
+     ul {
+-      padding-left: 20px;
++      padding-left: 18px;
+       margin: 8px 0 0;
+@@ -100,2 +209,9 @@
+ 
++    .divider {
++      height: 1px;
++      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
++      margin: 22px 0;
++      border: 0;
++    }
++
+     footer {
+@@ -104,4 +220,13 @@
+       font-size: 12px;
+-      margin-top: 28px;
++      margin-top: 32px;
++    }
++
++    .fade-in {
++      animation: fadeIn 0.6s ease both;
+     }
++
++    @keyframes fadeIn {
++      from { opacity: 0; transform: translateY(8px); }
++      to { opacity: 1; transform: translateY(0); }
++    }
+   </style>
+@@ -110,20 +235,49 @@
+   <div class="wrap">
+-    <header>
+-      <div class="pill">Поддержка</div>
++    <div class="glow" aria-hidden="true"></div>
++
++    <header class="fade-in">
++      <div class="badge">Поддержка</div>
+       <h1>Voyage</h1>
+       <p class="subtitle">Чек‑листы для поездок: города, категории, шаблоны.</p>
++      <p class="hero">
++        Мы отвечаем быстро и по делу. Опишите проблему или идею, и приложите версию iOS,
++        модель устройства и скриншоты, если это поможет разобраться.
++      </p>
++      <div class="cta">
++        <a class="btn" href="mailto:support@yourdomain.com">Написать в поддержку</a>
++        <a class="btn secondary" href="#faq">Посмотреть ответы</a>
++      </div>
+     </header>
+ 
+-    <section class="card">
+-      <h2>Как помочь?</h2>
+-      <p>
+-        Опишите проблему или предложение, и мы вернемся с ответом.
+-        Пожалуйста, приложите версию iOS, модель устройства и скриншоты при необходимости.
+-      </p>
+-      <p>
+-        Email поддержки: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
+-      </p>
++    <section class="grid fade-in" style="animation-delay: 0.08s;">
++      <div class="card">
++        <h2>Связаться с поддержкой</h2>
++        <p class="muted">
++          Мы рядом, чтобы помочь: восстановить список, подсказать по шаблонам,
++          решить технический вопрос или принять предложение.
++        </p>
++        <div class="contact">
++          <strong>Email поддержки</strong>
++          <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
++          <span class="muted">Обычно отвечаем в течение 24 часов в рабочие дни.</span>
++        </div>
++      </div>
++
++      <div class="card">
++        <h2>Кратко о Voyage</h2>
++        <p class="muted">
++          Voyage помогает собираться без суеты: списки под города, умные категории,
++          шаблоны для повторных поездок и архив для истории.
++        </p>
++        <hr class="divider" />
++        <ul>
++          <li>Создавайте чек‑листы для конкретных поездок.</li>
++          <li>Группируйте вещи по категориям и эмодзи.</li>
++          <li>Сохраняйте наборы как шаблоны.</li>
++          <li>Архивируйте старые шаблоны.</li>
++        </ul>
++      </div>
+     </section>
+ 
+-    <section class="columns">
++    <section class="columns fade-in" id="faq" style="animation-delay: 0.16s; margin-top: 18px;">
+       <div class="card">
+@@ -139,9 +293,10 @@
+       <div class="card">
+-        <h3>О приложении</h3>
+-        <ul>
+-          <li>Создавайте списки под конкретные города.</li>
+-          <li>Группируйте вещи по категориям и эмодзи.</li>
+-          <li>Сохраняйте наборы как шаблоны.</li>
+-          <li>Архивируйте старые шаблоны.</li>
+-        </ul>
++        <h3>Юридическая информация</h3>
++        <p class="muted">
++          Политика конфиденциальности и пользовательское соглашение доступны по запросу.
++          Если нужно, добавьте ссылки на публичные документы.
++        </p>
++        <p class="muted">
++          Для запросов по данным укажите тему письма «Voyage: данные».
++        </p>
+       </div>
+@@ -149,11 +304,3 @@
+ 
+-    <section class="card">
+-      <h3>Юридическая информация</h3>
+-      <p>
+-        Политика конфиденциальности и пользовательское соглашение доступны по запросу.
+-        Если нужно, добавьте ссылки на публичные документы.
+-      </p>
+-    </section>
+-
+-    <footer>
++    <footer class="fade-in" style="animation-delay: 0.24s;">
+       © 2026 Voyage
