@@ -6,158 +6,428 @@
   <meta name="description" content="Поддержка Voyage — чек-листов для поездок." />
   <title>Voyage — Поддержка</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
     :root {
-      --bg: #faf7f6;
-      --card: #ffffff;
-      --text: #2f2f2f;
-      --muted: #6b6b6b;
+      --bg: #f7f4f2;
+      --card: rgba(255, 255, 255, 0.84);
+      --text: #1f1f1f;
+      --muted: #6a6763;
       --accent: #f27f7f;
-      --accent-dark: #d96d6d;
-      --border: #ece8e6;
+      --accent-2: #f4b6a8;
+      --accent-dark: #c95f5f;
+      --border: rgba(232, 228, 224, 0.9);
+      --shadow: 0 20px 60px rgba(27, 18, 16, 0.12);
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-      background: radial-gradient(1200px 400px at 10% -10%, #ffe8e8, transparent),
-                  radial-gradient(800px 300px at 100% 0%, #fff0f0, transparent),
-                  var(--bg);
+      font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(1200px 500px at 12% -8%, rgba(242, 127, 127, 0.35), transparent),
+        radial-gradient(800px 400px at 92% 4%, rgba(244, 182, 168, 0.35), transparent),
+        radial-gradient(900px 500px at 50% 120%, rgba(246, 231, 220, 0.6), transparent),
+        var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
+      min-height: 100vh;
     }
 
     .wrap {
-      max-width: 840px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 40px 20px 64px;
+      padding: 32px 20px 72px;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(242,127,127,0.35), transparent 70%);
+      filter: blur(20px);
+      top: 40px;
+      right: -60px;
+      z-index: 0;
+      pointer-events: none;
     }
 
     header {
       text-align: center;
-      padding: 24px 16px 8px;
+      padding: 36px 12px 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .lang-btn {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: rgba(242, 127, 127, 0.18);
+      border-color: rgba(242, 127, 127, 0.35);
+      color: #8c3b3b;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(242, 127, 127, 0.16);
+      color: #8c3b3b;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border: 1px solid rgba(242, 127, 127, 0.2);
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 34px;
+      margin: 14px 0 8px;
+      font-family: "Fraunces", "Georgia", serif;
+      font-weight: 700;
+      font-size: 44px;
       letter-spacing: 0.2px;
     }
 
     .subtitle {
       color: var(--muted);
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .hero {
+      margin: 18px auto 10px;
+      max-width: 720px;
+      color: var(--muted);
       font-size: 16px;
-      margin: 0 0 18px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-      margin: 16px 0;
+    .cta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
     }
 
-    .pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #ffe3e3;
-      color: #8c3b3b;
-      font-size: 12px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
+      text-decoration: none;
+      border: none;
+      box-shadow: 0 12px 30px rgba(242, 127, 127, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(242, 127, 127, 0.45);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+
+    .muted {
+      color: var(--muted);
     }
 
     a {
       color: var(--accent-dark);
       text-decoration: none;
-      border-bottom: 1px solid rgba(242,127,127,0.35);
+      border-bottom: 1px solid rgba(201, 95, 95, 0.35);
     }
 
     a:hover {
       color: var(--accent);
-      border-bottom-color: rgba(242,127,127,0.7);
+      border-bottom-color: rgba(201, 95, 95, 0.7);
     }
 
     ul {
-      padding-left: 20px;
+      padding-left: 18px;
       margin: 8px 0 0;
     }
-
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+    section {
+      margin: 26px 0;
+      position: relative;
+      z-index: 1;
     }
 
-    @media (min-width: 720px) {
-      .columns { grid-template-columns: 1fr 1fr; }
+    section h2, section h3 {
+      margin: 0 0 10px;
+      font-family: "Fraunces", "Georgia", serif;
     }
 
     footer {
       text-align: center;
       color: var(--muted);
       font-size: 12px;
-      margin-top: 28px;
+      margin-top: 32px;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="pill">Поддержка</div>
+    <div class="glow" aria-hidden="true"></div>
+
+    <header class="fade-in">
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+      <div class="badge" data-i18n="badge">Поддержка</div>
       <h1>Voyage</h1>
-      <p class="subtitle">Чек‑листы для поездок: города, категории, шаблоны.</p>
+      <p class="subtitle" data-i18n="subtitle">Чек‑листы для поездок: города, категории, шаблоны.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:voyage-app@mail.ru" data-i18n="contact_btn">Написать в поддержку</a>
+      </div>
     </header>
 
-    <section class="card">
-      <h2>Как помочь?</h2>
+    <section class="fade-in" style="animation-delay: 0.08s;">
+      <h2 data-i18n="support_title">Связаться с поддержкой</h2>
       <p>
-        Опишите проблему или предложение, и мы вернемся с ответом.
-        Пожалуйста, приложите версию iOS, модель устройства и скриншоты при необходимости.
+        <span data-i18n="support_email_label">Email поддержки:</span>
+        <a href="mailto:voyage-app@mail.ru">voyage-app@mail.ru</a>
       </p>
-      <p>
-        Email поддержки: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
-      </p>
+      <p class="muted" data-i18n="support_sla">Обычно отвечаем в течение 24 часов в рабочие дни.</p>
     </section>
 
-    <section class="columns">
-      <div class="card">
-        <h3>Частые вопросы</h3>
-        <ul>
-          <li>Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.</li>
-          <li>Как сохранить как шаблон? Откройте список и нажмите «Все собрано».</li>
-          <li>Где архив? В профиле → «Архив шаблонов».</li>
-          <li>Нужна регистрация? Нет, приложение работает в локальном режиме.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>О приложении</h3>
-        <ul>
-          <li>Создавайте списки под конкретные города.</li>
-          <li>Группируйте вещи по категориям и эмодзи.</li>
-          <li>Сохраняйте наборы как шаблоны.</li>
-          <li>Архивируйте старые шаблоны.</li>
-        </ul>
-      </div>
+    <section class="fade-in" style="animation-delay: 0.12s;">
+      <h2 data-i18n="about_title">Для чего Voyage?</h2>
+      <p class="muted" data-i18n="about_text">Voyage помогает собираться без суеты: списки под города, умные категории, шаблоны для повторных поездок и архив для истории.</p>
+      <ul>
+        <li data-i18n="about_li_1">Создавайте чек‑листы для конкретных поездок.</li>
+        <li data-i18n="about_li_2">Группируйте вещи по категориям и эмодзи.</li>
+        <li data-i18n="about_li_3">Сохраняйте наборы как шаблоны.</li>
+        <li data-i18n="about_li_4">Архивируйте старые шаблоны.</li>
+      </ul>
     </section>
 
-    <section class="card">
-      <h3>Юридическая информация</h3>
-      <p>
-        Политика конфиденциальности и пользовательское соглашение доступны по запросу.
-        Если нужно, добавьте ссылки на публичные документы.
-      </p>
+    <section class="fade-in" id="faq" style="animation-delay: 0.16s;">
+      <h3 data-i18n="faq_title">Частые вопросы</h3>
+      <ul>
+        <li data-i18n="faq_1">Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.</li>
+        <li data-i18n="faq_2">Как сохранить как шаблон? Откройте список и нажмите «Все собрано».</li>
+        <li data-i18n="faq_3">Где архив? В профиле → «Архив шаблонов».</li>
+        <li data-i18n="faq_4">Нужна регистрация? Нет, приложение работает в локальном режиме.</li>
+      </ul>
     </section>
 
-    <footer>
+    <section class="fade-in" style="animation-delay: 0.2s;">
+      <h3 data-i18n="legal_title">Юридическая информация</h3>
+      <p class="muted" data-i18n="legal_text_1">Политика конфиденциальности и пользовательское соглашение доступны в приложении.</p>
+      <p class="muted"><strong data-i18n="legal_text_2_label">Данные в безопасности?</strong> <span data-i18n="legal_text_2">Все данные хранятся локально на вашем устройстве. Приложение работает без регистрации и не передает данные третьим лицам.</span></p>
+    </section>
+
+    <footer class="fade-in" style="animation-delay: 0.24s;">
       © 2026 Voyage
     </footer>
   </div>
+  <script>
+    const I18N = {
+      ru: {
+        title: "Voyage — Поддержка",
+        description: "Поддержка Voyage — чек-листов для поездок.",
+        badge: "Поддержка",
+        subtitle: "Чек‑листы для поездок: города, категории, шаблоны.",
+        contact_btn: "Написать в поддержку",
+        support_title: "Связаться с поддержкой",
+        support_email_label: "Email поддержки:",
+        support_sla: "Обычно отвечаем в течение 24 часов в рабочие дни.",
+        about_title: "Для чего Voyage?",
+        about_text: "Voyage помогает собираться без суеты: списки под города, умные категории, шаблоны для повторных поездок и архив для истории.",
+        about_li_1: "Создавайте чек‑листы для конкретных поездок.",
+        about_li_2: "Группируйте вещи по категориям и эмодзи.",
+        about_li_3: "Сохраняйте наборы как шаблоны.",
+        about_li_4: "Архивируйте старые шаблоны.",
+        faq_title: "Частые вопросы",
+        faq_1: "Как создать чек‑лист? Нажмите «Создать чек‑лист» на главном экране.",
+        faq_2: "Как сохранить как шаблон? Откройте список и нажмите «Все собрано».",
+        faq_3: "Где архив? В профиле → «Архив шаблонов».",
+        faq_4: "Нужна регистрация? Нет, приложение работает в локальном режиме.",
+        legal_title: "Юридическая информация",
+        legal_text_1: "Политика конфиденциальности и пользовательское соглашение доступны в приложении.",
+        legal_text_2_label: "Данные в безопасности?",
+        legal_text_2: "Все данные хранятся локально на вашем устройстве. Приложение работает без регистрации и не передает данные третьим лицам."
+      },
+      en: {
+        title: "Voyage — Support",
+        description: "Voyage support — travel packing checklists.",
+        badge: "Support",
+        subtitle: "Travel checklists: cities, categories, templates.",
+        contact_btn: "Contact support",
+        support_title: "Contact support",
+        support_email_label: "Support email:",
+        support_sla: "We usually reply within 24 business hours.",
+        about_title: "What is Voyage for?",
+        about_text: "Voyage helps you pack without stress: city-based lists, smart categories, reusable templates, and archive history.",
+        about_li_1: "Create checklists for specific trips.",
+        about_li_2: "Group items by categories and emoji.",
+        about_li_3: "Save sets as templates.",
+        about_li_4: "Archive old templates.",
+        faq_title: "FAQ",
+        faq_1: "How to create a checklist? Tap “Create checklist” on the home screen.",
+        faq_2: "How to save as template? Open a checklist and tap “All packed”.",
+        faq_3: "Where is archive? Profile → “Templates archive”.",
+        faq_4: "Is registration required? No, the app works in local mode.",
+        legal_title: "Legal information",
+        legal_text_1: "Privacy Policy and User Agreement are available in the app.",
+        legal_text_2_label: "Is data secure?",
+        legal_text_2: "All data is stored locally on your device. The app works without registration and does not sell personal data."
+      },
+      de: {
+        title: "Voyage — Support",
+        description: "Voyage Support — Reise-Checklisten.",
+        badge: "Support",
+        subtitle: "Reise-Checklisten: Städte, Kategorien, Vorlagen.",
+        contact_btn: "Support kontaktieren",
+        support_title: "Support kontaktieren",
+        support_email_label: "Support-E-Mail:",
+        support_sla: "Wir antworten in der Regel innerhalb von 24 Arbeitsstunden.",
+        about_title: "Wofür ist Voyage?",
+        about_text: "Voyage hilft beim stressfreien Packen: stadtbezogene Listen, Kategorien, wiederverwendbare Vorlagen und Archiv.",
+        about_li_1: "Checklisten für konkrete Reisen erstellen.",
+        about_li_2: "Dinge nach Kategorien und Emojis gruppieren.",
+        about_li_3: "Sets als Vorlagen speichern.",
+        about_li_4: "Alte Vorlagen archivieren.",
+        faq_title: "Häufige Fragen",
+        faq_1: "Wie erstelle ich eine Checkliste? Auf dem Startbildschirm „Checkliste erstellen“ tippen.",
+        faq_2: "Wie speichere ich als Vorlage? Liste öffnen und „Alles gepackt“ tippen.",
+        faq_3: "Wo ist das Archiv? Profil → „Vorlagenarchiv“.",
+        faq_4: "Ist eine Registrierung nötig? Nein, die App läuft lokal.",
+        legal_title: "Rechtliche Informationen",
+        legal_text_1: "Datenschutzrichtlinie und Nutzungsbedingungen sind in der App verfügbar.",
+        legal_text_2_label: "Sind die Daten sicher?",
+        legal_text_2: "Alle Daten werden lokal auf dem Gerät gespeichert. Die App funktioniert ohne Registrierung und verkauft keine personenbezogenen Daten."
+      },
+      fr: {
+        title: "Voyage — Assistance",
+        description: "Assistance Voyage — check-lists de voyage.",
+        badge: "Assistance",
+        subtitle: "Check-lists de voyage : villes, catégories, modèles.",
+        contact_btn: "Contacter l’assistance",
+        support_title: "Contacter l’assistance",
+        support_email_label: "E-mail d’assistance :",
+        support_sla: "Nous répondons généralement sous 24 heures ouvrées.",
+        about_title: "À quoi sert Voyage ?",
+        about_text: "Voyage vous aide à préparer vos voyages sans stress : listes par ville, catégories, modèles réutilisables et archive.",
+        about_li_1: "Créer des check-lists pour des voyages précis.",
+        about_li_2: "Classer les éléments par catégories et emoji.",
+        about_li_3: "Enregistrer des ensembles comme modèles.",
+        about_li_4: "Archiver les anciens modèles.",
+        faq_title: "Questions fréquentes",
+        faq_1: "Comment créer une check-list ? Appuyez sur « Créer une check-list » sur l’écran d’accueil.",
+        faq_2: "Comment enregistrer en modèle ? Ouvrez la liste et appuyez sur « Tout est prêt ».",
+        faq_3: "Où est l’archive ? Profil → « Archive des modèles ».",
+        faq_4: "Inscription nécessaire ? Non, l’app fonctionne en mode local.",
+        legal_title: "Informations juridiques",
+        legal_text_1: "La politique de confidentialité et les conditions d’utilisation sont disponibles dans l’application.",
+        legal_text_2_label: "Les données sont-elles sécurisées ?",
+        legal_text_2: "Toutes les données sont stockées localement sur votre appareil. L’application fonctionne sans inscription et ne vend pas de données personnelles."
+      },
+      es: {
+        title: "Voyage — Soporte",
+        description: "Soporte de Voyage — listas de viaje.",
+        badge: "Soporte",
+        subtitle: "Checklists de viaje: ciudades, categorías y plantillas.",
+        contact_btn: "Contactar soporte",
+        support_title: "Contactar soporte",
+        support_email_label: "Correo de soporte:",
+        support_sla: "Normalmente respondemos en 24 horas laborables.",
+        about_title: "¿Para qué sirve Voyage?",
+        about_text: "Voyage te ayuda a preparar viajes sin estrés: listas por ciudad, categorías, plantillas reutilizables y archivo.",
+        about_li_1: "Crea checklists para viajes concretos.",
+        about_li_2: "Agrupa artículos por categorías y emoji.",
+        about_li_3: "Guarda conjuntos como plantillas.",
+        about_li_4: "Archiva plantillas antiguas.",
+        faq_title: "Preguntas frecuentes",
+        faq_1: "¿Cómo crear una checklist? Pulsa «Crear checklist» en la pantalla principal.",
+        faq_2: "¿Cómo guardar como plantilla? Abre la lista y pulsa «Todo listo».",
+        faq_3: "¿Dónde está el archivo? Perfil → «Archivo de plantillas».",
+        faq_4: "¿Hace falta registro? No, la app funciona en modo local.",
+        legal_title: "Información legal",
+        legal_text_1: "La política de privacidad y el acuerdo de usuario están disponibles en la app.",
+        legal_text_2_label: "¿Los datos están seguros?",
+        legal_text_2: "Todos los datos se almacenan localmente en tu dispositivo. La app funciona sin registro y no vende datos personales."
+      }
+    };
+
+    function pickInitialLanguage() {
+      const saved = localStorage.getItem("voyage_support_lang");
+      if (saved && I18N[saved]) return saved;
+      const browserLang = (navigator.language || "en").toLowerCase();
+      if (browserLang.startsWith("ru")) return "ru";
+      if (browserLang.startsWith("de")) return "de";
+      if (browserLang.startsWith("fr")) return "fr";
+      if (browserLang.startsWith("es")) return "es";
+      return "en";
+    }
+
+    function applyLanguage(lang) {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.title = dict.title;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute("content", dict.description);
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      localStorage.setItem("voyage_support_lang", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    applyLanguage(pickInitialLanguage());
+  </script>
 </body>
 </html>
