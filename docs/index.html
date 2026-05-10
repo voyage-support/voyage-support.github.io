@@ -393,7 +393,17 @@
       }
     };
 
+    function getLanguageFromUrl() {
+      const url = new URL(window.location.href);
+      const lang = (url.searchParams.get("lang") || "").toLowerCase();
+      if (I18N[lang]) return lang;
+      return null;
+    }
+
     function pickInitialLanguage() {
+      const fromUrl = getLanguageFromUrl();
+      if (fromUrl) return fromUrl;
+
       const saved = localStorage.getItem("voyage_support_lang");
       if (saved && I18N[saved]) return saved;
       const browserLang = (navigator.language || "en").toLowerCase();
